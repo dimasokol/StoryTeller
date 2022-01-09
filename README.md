@@ -1,4 +1,3 @@
-# StoryTeller
-## Library and demo App
+# StoryTeller (Library & DemoApp)
 
 Basic story player framefork for Android
