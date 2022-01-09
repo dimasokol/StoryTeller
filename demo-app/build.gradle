@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply from: '../StoryTeller/defines.gradle'
+
+android {
+    compileSdk ANDROID_COMPILE_SDK_VERSION
+
+    defaultConfig {
+        applicationId "ru.dimasokol.storyteller.demo"
+        minSdk ANDROID_MIN_API_VERSION
+        targetSdk ANDROID_TARGET_API_VERSION
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(':StoryTeller')
+    implementation "androidx.core:core-ktx:$ANDROIDX_CORE_KTX_VERSION"
+    implementation "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION"
+    implementation "com.google.android.material:material:$GOOGLE_MATERIAL_VERSION"
+    testImplementation "junit:junit:$JUNIT_VERSION"
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
